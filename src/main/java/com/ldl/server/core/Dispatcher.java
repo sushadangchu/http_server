@@ -1,5 +1,7 @@
 package com.ldl.server.core;
 
+import com.ldl.server.core.util.ioUtil;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
@@ -21,8 +23,7 @@ public class Dispatcher implements Runnable {
     public void run() {
         try {
             if (request.getUri() == null || "".equals(request.getUri())) {
-                InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("index.html");
-                response.print(new String(inputStream.readAllBytes()));
+                response.print(new String(ioUtil.readAllBytes("/index.html")));
                 response.push(200);
                 return;
             }
@@ -31,8 +32,7 @@ public class Dispatcher implements Runnable {
                 servlet.service(request, response);
                 response.push(200);
             } else {
-                InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("error.html");
-                response.print(new String(inputStream.readAllBytes()));
+                response.print(new String(ioUtil.readAllBytes("/error.html")));
                 response.push(404);
             }
         } catch (Exception e) {
