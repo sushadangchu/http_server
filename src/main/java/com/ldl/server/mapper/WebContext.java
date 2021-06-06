@@ -1,4 +1,4 @@
-package com.ldl.server.core;
+package com.ldl.server.mapper;
 
 import java.util.HashMap;
 import java.util.List;

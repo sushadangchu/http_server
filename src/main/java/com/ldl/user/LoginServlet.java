@@ -1,8 +1,8 @@
 package com.ldl.user;
 
-import com.ldl.server.core.Request;
-import com.ldl.server.core.Response;
-import com.ldl.server.core.Servlet;
+import com.ldl.server.connector.Request;
+import com.ldl.server.connector.Response;
+import com.ldl.server.Servlet;
 
 public class LoginServlet implements Servlet {
     @Override
@@ -18,5 +18,10 @@ public class LoginServlet implements Servlet {
         response.print("登陆成功，" + request.getParameterValue("uname"));
         response.print("</body>");
         response.print("</html>");
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

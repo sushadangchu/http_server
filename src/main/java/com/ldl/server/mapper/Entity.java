@@ -1,4 +1,4 @@
-package com.ldl.server.core;
+package com.ldl.server.mapper;
 
 public class Entity {
     private String name;

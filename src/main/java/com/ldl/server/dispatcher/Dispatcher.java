@@ -1,9 +1,12 @@
-package com.ldl.server.core;
+package com.ldl.server.dispatcher;
 
-import com.ldl.server.core.util.ioUtil;
+import com.ldl.server.WebApp;
+import com.ldl.server.connector.Request;
+import com.ldl.server.connector.Response;
+import com.ldl.server.Servlet;
+import com.ldl.server.util.ioUtil;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.Socket;
 
 public class Dispatcher implements Runnable {
@@ -25,6 +28,7 @@ public class Dispatcher implements Runnable {
             if (request.getUri() == null || "".equals(request.getUri())) {
                 response.print(new String(ioUtil.readAllBytes("/index.html")));
                 response.push(200);
+                release();
                 return;
             }
             Servlet servlet = WebApp.getServletFromUri(request.getUri());

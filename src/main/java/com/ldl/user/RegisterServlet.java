@@ -1,8 +1,8 @@
 package com.ldl.user;
 
-import com.ldl.server.core.Request;
-import com.ldl.server.core.Response;
-import com.ldl.server.core.Servlet;
+import com.ldl.server.connector.Request;
+import com.ldl.server.connector.Response;
+import com.ldl.server.Servlet;
 
 public class RegisterServlet implements Servlet {
 
@@ -31,5 +31,10 @@ public class RegisterServlet implements Servlet {
         response.print("登陆名:" + uname + ",爱好:" + fav);
         response.print("</body>");
         response.print("</html>");
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

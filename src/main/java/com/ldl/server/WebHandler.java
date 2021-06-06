@@ -1,5 +1,7 @@
-package com.ldl.server.core;
+package com.ldl.server;
 
+import com.ldl.server.mapper.Entity;
+import com.ldl.server.mapper.Mapping;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

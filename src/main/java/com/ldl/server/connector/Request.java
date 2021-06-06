@@ -1,4 +1,4 @@
-package com.ldl.server.core;
+package com.ldl.server.connector;
 
 import java.io.IOException;
 import java.io.InputStream;
